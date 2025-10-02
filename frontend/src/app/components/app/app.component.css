@@ -1,0 +1,37 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Da bude iznad ostalih elemenata */
+  background-image: url('/assets/background.jpg');
+  background-size: cover;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between; /* Raspoređuje elemente ravnomerno */
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logout-button {
+  padding: 10px 15px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.logout-button:hover {
+  background-color: papayawhip;
+}
+
+.container {
+  padding-top: 80px; /* Sprečava preklapanje sadržaja sa navigacijom */
+}
+
+.hidden-header {
+  display: none;
+}

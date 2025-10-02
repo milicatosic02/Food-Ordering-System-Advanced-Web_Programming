@@ -1,0 +1,46 @@
+<div class="history">
+  <h2>Failed Orders</h2>
+  <ul *ngIf="errors.length > 0; else noOrders">
+    <li *ngFor="let error of errors" class="order-item">
+      <strong>Error ID:</strong> {{ error.id }}<br />
+      <strong>Created by:</strong>
+      <span *ngIf="error.order.createdBy; else noUser">
+        {{ error.order.createdBy }}
+      </span>
+      <ng-template #noUser>
+        <span>Unknown User</span>
+      </ng-template>
+      <br />
+      <strong>Message:</strong> {{ error.message }}<br />
+      <strong>Status:</strong> {{ error.order.status }}<br />
+      <strong>Price:</strong> {{ error.order.cenaPorudzbine }} RSD<br />
+      <strong>Date:</strong> {{ error.timestamp | date:'medium' }}<br />
+      <strong *ngIf="error.order.scheduledFor">Scheduled For:</strong>
+      {{ error.order.scheduledFor | date:'medium' }}<br />
+      <strong>Address:</strong> {{ error.order.address }}<br />
+      <strong>Payment method:</strong> {{ error.order.paymentType }}<br />
+
+      <h4>Order items:</h4>
+      <ul *ngIf="error.order.dishes.length > 0; else noDishes">
+        <li *ngFor="let dish of error.order.dishes">
+          {{ dish.dishName ?? 'Unnamed Dish' }}<br />
+          <hr />
+        </li>
+      </ul>
+      <ng-template #noDishes>
+        <p>No dishes in this order.</p>
+      </ng-template>
+      <hr />
+    </li>
+  </ul>
+  <ng-template #noOrders>
+    <p>No failed orders found.</p>
+  </ng-template>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-controls">
+    <button (click)="previousPage()" [disabled]="currentPage === 0" class="btn btn-secondary">Previous</button>
+    <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages - 1" class="btn btn-secondary">Next</button>
+  </div>
+</div>

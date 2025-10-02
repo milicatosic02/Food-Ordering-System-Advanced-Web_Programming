@@ -1,0 +1,66 @@
+<div class="user-edit-form">
+  <h2>Edit User</h2>
+
+  <form (ngSubmit)="onSubmit()" #editUserForm="ngForm">
+    <!-- Ime -->
+    <label for="firstName">Ime</label>
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      [(ngModel)]="user.firstName"
+      required
+      class="form-control"
+    />
+
+    <!-- Prezime -->
+    <label for="lastName">Prezime</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      [(ngModel)]="user.lastName"
+      required
+      class="form-control"
+    />
+
+    <!-- Email -->
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+      class="form-control"
+    />
+
+    <div class="permissions">
+      <h3>Permisije</h3>
+      <div *ngFor="let permission of availablePermissions">
+        <label>
+          <input
+            type="checkbox"
+            [(ngModel)]="user.roles[permission]"
+            (change)="onPermissionChange(permission, $event)"
+
+            [name]="getPermissionAsString(permission)" /> <!-- Korišćenje funkcije za konvertovanje permission u string -->
+          {{ permission }}
+        </label>
+      </div>
+    </div>
+
+    <!-- Dugme za izmenu -->
+    <button
+      type="submit"
+      [disabled]="!editUserForm.form.valid"
+      class="btn btn-primary"
+    >
+      Izmeni
+    </button>
+  </form>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>

@@ -1,0 +1,15 @@
+<header [ngClass]="{'hidden-header': router.url === '/login'}" class="app-header">
+  <div class="header-content">
+    <button class="logout-button" (click)="logout()">Logout</button>
+    <button class="logout-button" routerLink="/users">Users</button>
+    <button class="logout-button" routerLink="/history">History</button>
+    <button class="logout-button" routerLink="/errors">Failed Orders</button>
+    <button class="logout-button" routerLink="/track">Track Order</button>
+    <button class="logout-button" routerLink="/dishes">Home</button>
+    <button class="logout-button" routerLink="/cart">Cart</button>
+  </div>
+</header>
+
+<div class="container pt-3">
+  <router-outlet></router-outlet>
+</div>

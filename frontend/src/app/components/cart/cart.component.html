@@ -1,0 +1,77 @@
+<div class="order-section" *ngIf="cartItems.length > 0">
+  <h2>Your Cart</h2>
+
+  <div class="cart-items">
+    <div *ngFor="let item of cartItems; let i = index" class="cart-item">
+      <div class="cart-item-info">
+        <div class="cart-item-name">{{ item.name }}</div>
+        <div class="cart-item-description">{{ item.description }}</div>
+        <div class="cart-item-quantity">Quantity: {{ item.quantity }}</div>
+        <div class="cart-item-quantity">Price: {{ item.cena }} RSD</div>
+      </div>
+      <button (click)="removeItem(i)">Remove</button>
+    </div>
+  </div>
+
+  <!-- Forma za unos adrese i načina plaćanja -->
+  <div class="order-form">
+    <h3>Final price: {{ finalPrice }} RSD </h3>
+    <h3>Order Details</h3>
+    <form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+      <div class="form-group">
+        <label for="address">Delivery Address:</label>
+        <input id="address" type="text" formControlName="address" placeholder="Enter delivery address" required />
+      </div>
+
+      <div class="form-group">
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" formControlName="paymentMethod" required>
+          <option value="CASH">Cash</option>
+          <option value="CARD">Card</option>
+        </select>
+      </div>
+
+      <div class="form-group schedule-group">
+        <button type="button" (click)="openScheduleModal()" class="schedule-order-btn">Schedule Order</button>
+        <!-- Ikonica kalendara -->
+        <button type="button" (click)="openScheduleModal()" class="calendar-icon-btn" aria-label="Open Calendar">
+          <i class="fa fa-calendar"></i>
+        </button>
+        <button type="submit" class="place-order-btn">Place Order</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="cartItems.length === 0">
+  <h3>Your cart is empty</h3>
+</div>
+
+<!-- Modal za zakazivanje -->
+<div class="schedule-modal" *ngIf="isScheduleModalOpen">
+  <div class="modal-content">
+    <h3>Select a Date and Time</h3>
+    <input
+      type="datetime-local"
+      [(ngModel)]="scheduledDate"
+      class="schedule-datetime-picker"
+    />
+    <div class="modal-actions">
+      <button (click)="confirmSchedule()" class="confirm-btn">Confirm</button>
+      <button (click)="closeScheduleModal()" class="close-btn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isOrderSuccess !== 0" class="custom-alert">
+  <div class="alert-content">
+    <p *ngIf="isOrderSuccess === 1">Your order is created successfully. You can track it now.</p>
+    <p *ngIf="isOrderSuccess === -1">
+      Sorry, your order can't be created because our capacity is full currently.<br />
+      Try again later!
+    </p>
+    <p *ngIf="isOrderSuccess === -2">Niste autorizovani za zeljenu aktivnost!</p>
+    <button (click)="closeAlert()">OK</button>
+  </div>
+</div>
+

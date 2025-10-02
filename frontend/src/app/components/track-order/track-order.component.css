@@ -1,0 +1,95 @@
+.history {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the container horizontally */
+  justify-content: center; /* Center the container vertically */
+  margin: 20px auto;
+  max-width: 600px; /* Limit the width of the content */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #333;
+  text-align: center; /* Title is centered */
+}
+
+.history ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.history .order-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Text within the item is left-aligned */
+  width: 100%; /* Ensure items span the full width of the container */
+  line-height: 1.8; /* Increased line height for better readability */
+}
+
+.history .order-item h4 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.history li {
+  margin-bottom: 10px;
+  line-height: 1.8; /* Apply increased line height to list items */
+}
+
+.history p {
+  color: #555;
+  text-align: left; /* Ensure paragraphs are left-aligned */
+  line-height: 1.8; /* Apply increased line height to paragraphs */
+}
+
+.close-btn {
+  background: #dc3545;
+  color: #fff;  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+.custom-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.alert-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-content button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}

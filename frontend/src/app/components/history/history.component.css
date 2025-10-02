@@ -1,0 +1,137 @@
+.history {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the container horizontally */
+  justify-content: center; /* Center the container vertically */
+  margin: 20px auto;
+  max-width: 600px; /* Limit the width of the content */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #333;
+  text-align: center; /* Title is centered */
+}
+
+.history ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.history .order-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Text within the item is left-aligned */
+  width: 100%; /* Ensure items span the full width of the container */
+  line-height: 1.8; /* Increased line height for better readability */
+}
+
+.history .order-item h4 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.history li {
+  margin-bottom: 10px;
+  line-height: 1.8; /* Apply increased line height to list items */
+}
+
+.history p {
+  color: #555;
+  text-align: left; /* Ensure paragraphs are left-aligned */
+  line-height: 1.8; /* Apply increased line height to paragraphs */
+}
+
+
+
+
+/* Centralno poravnanje forme */
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Razmak između elemenata */
+  align-items: flex-end;
+  justify-content: center; /* Centriranje elemenata horizontalno */
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: transparent; /* Svetla pozadina */
+  border-radius: 10px; /* Blago zaobljeni uglovi */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Suptilna senka */
+}
+
+/* Stilizacija grupa */
+.search-form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Stilizacija labela */
+.search-form .form-group label {
+  font-weight: bold;
+  font-size: 14px; /* Veći i moderniji font */
+  color: #333; /* Tamno siva boja */
+  margin-bottom: 5px;
+}
+
+/* Stilizacija polja za unos i padajućih menija */
+.search-form .form-group .form-control,
+.search-form .form-group .form-select {
+  min-width: 180px; /* Šira polja za unos */
+  padding: 8px;
+  border: 1px solid #ccc; /* Svetla ivica */
+  border-radius: 5px; /* Zaobljeni uglovi */
+  font-size: 14px;
+  color: #555; /* Neutralna boja teksta */
+}
+
+.search-form .form-group .form-control:focus,
+.search-form .form-group .form-select:focus {
+  border-color: #007bff; /* Plava ivica na fokusu */
+  outline: none; /* Uklanjanje spoljne ivice */
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.25); /* Blaga senka na fokusu */
+  color: black;
+}
+
+/* Dugme za pretragu */
+.search-form .form-group button {
+  margin-top: 5px;
+  padding: 8px 12px;
+  min-width: 100px;
+  background-color: #007bff; /* Plava pozadina */
+  color: #fff; /* Bela boja teksta */
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-form .form-group button:hover {
+  background-color: #0056b3; /* Tamnija plava na hover */
+}
+
+/* Prilagodljiv dizajn */
+@media (max-width: 768px) {
+  .search-form .form-group {
+    flex: 1 1 100%; /* Svaka grupa zauzima ceo red na manjim ekranima */
+  }
+}
+
+/* Centriranje cele sekcije */
+.history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

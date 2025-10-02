@@ -1,0 +1,86 @@
+
+<div class="user-edit-form">
+  <h2>Kreiraj Novog Korisnika</h2>
+
+  <form (ngSubmit)="onSubmit()" #createUserForm="ngForm">
+    <!-- Ime -->
+    <label for="firstName">Ime</label>
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      [(ngModel)]="user.firstName"
+      required
+      class="form-control"
+      #firstName="ngModel"
+    />
+
+    <!-- Prezime -->
+    <label for="lastName">Prezime</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      [(ngModel)]="user.lastName"
+      required
+      class="form-control"
+      #lastName="ngModel"
+    />
+
+    <!-- Email -->
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+      class="form-control"
+      #email="ngModel"
+    />
+
+    <!-- Lozinka -->
+    <label for="password">Lozinka</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="user.password"
+      required
+      class="form-control"
+      #password="ngModel"
+    />
+
+    <div class="permissions">
+      <h3>Permisije</h3>
+      <div *ngFor="let permission of availablePermissions" class="permission-item">
+        <label>
+          <span>{{ permission }}</span>
+          <input
+            type="checkbox"
+            [(ngModel)]="user.roles[permission]"
+            (change)="onPermissionChange(permission, $event)"
+            [name]="getPermissionAsString(permission)" />
+        </label>
+      </div>
+    </div>
+
+    <!-- Dugme za kreiranje -->
+    <button
+      type="submit"
+      [disabled]="!createUserForm.form.valid"
+      class="btn btn-primary"
+    >
+      Kreiraj
+    </button>
+
+    <!-- Prikazivanje grešaka na dnu forme -->
+    <div *ngIf="createUserForm.submitted && !createUserForm.valid" class="error-message">
+      <p>Sva polja moraju biti popunjena!</p>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>

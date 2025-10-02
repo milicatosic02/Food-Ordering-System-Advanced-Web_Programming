@@ -1,0 +1,298 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Container for the order section */
+.order-section {
+  max-width: 600px; /* Manja širina forme */
+  margin: 40px auto; /* Centriranje forme na sredinu stranice */
+  padding: 20px;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 20px;
+  color: #888;
+}
+
+/* Cart items list */
+.cart-items {
+  display: flex;
+  flex-direction: column; /* Ovdje se postavlja da se stavke prikazuju u koloni, jedna ispod druge */
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  padding: 15px;
+  margin: 10px 0;
+  background-color: transparent;
+  width: 450px;
+  height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex; /* Stavka kao flex container */
+  flex-direction: column; /* Stavka sadrži više elemenata u vertikalnom pravcu */
+}
+
+.cart-item-info {
+  font-size: 16px;
+  margin-bottom: 10px; /* Prostor između imena proizvoda, opisa i količine */
+}
+
+.cart-item-name {
+  font-weight: bold;
+  margin-bottom: 5px; /* Prostor između imena i opisa */
+}
+
+.cart-item-description {
+  margin-bottom: 10px; /* Prostor između opisa i količine */
+}
+
+.cart-item-quantity {
+  margin-bottom: 10px; /* Prostor između količine i dugmeta za uklanjanje */
+}
+
+/* Cart item remove button */
+.cart-item button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto; /* Poravnanje na desnu stranu */
+  margin-top: 10px; /* Razmak od ostatka teksta */
+  display: inline-block;
+}
+
+.cart-item button:hover {
+  background-color: #ff2a2a;
+}
+
+/* Cart action buttons */
+.cart-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.place-order-btn, .schedule-order-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.place-order-btn:hover, .schedule-order-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Empty cart message */
+.cart-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* Modal styles */
+.schedule-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+.modal-content button:nth-child(2) {
+  background-color: #6c757d;
+}
+
+.modal-content button:nth-child(2):hover {
+  background-color: #5a6268;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centriranje sadržaja forme */
+  line-height: 1.8;
+}
+
+.form-group {
+  width: 100%; /* Omogućava punu širinu unosa i selektora */
+  margin-bottom: 20px;
+  text-align: center; /* Centriranje teksta i elemenata unutar grupe */
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select {
+  width: 80%; /* Smanjena širina za bolji izgled */
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+.schedule-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calendar-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.schedule-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-datetime-picker {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirm-btn, .close-btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.confirm-btn {
+  background: #007bff;
+  color: #fff;
+}
+
+.close-btn {
+  background: #dc3545;
+  color: #fff;
+}
+
+.custom-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.alert-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-content button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/*.alert-content button:hover {*/
+/*  background-color: #45a049;*/
+/*}*/

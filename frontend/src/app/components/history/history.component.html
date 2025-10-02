@@ -1,0 +1,89 @@
+<!-- Search Form -->
+<form class="search-form">
+  <!-- User -->
+  <div class="form-group" *ngIf="userPermissions === 9">
+    <label for="userInput">User:</label>
+    <input
+      type="text"
+      id="userInput"
+      class="form-control"
+      placeholder="Enter user email"
+      name="userInput"
+    />
+  </div>
+
+  <!-- Status -->
+  <div class="form-group">
+    <label for="statusSelect">Status:</label>
+    <select id="statusSelect" class="form-select">
+      <option value="">All</option>
+      <option value="ORDERED">Ordered</option>
+      <option value="PREPARING">Preparing</option>
+      <option value="IN_DELIVERY">In Delivery</option>
+      <option value="DELIVERED">Delivered</option>
+      <option value="CANCELLED">Cancelled</option>
+
+    </select>
+  </div>
+
+  <!-- DateFrom -->
+  <div class="form-group">
+    <label for="dateInput">Date From:</label>
+    <input type="date" id="dateInput" class="form-control" />
+  </div>
+
+  <!-- DateTo -->
+  <div class="form-group">
+    <label for="dateInput">Date To:</label>
+    <input type="date" id="dateInput2" class="form-control" />
+  </div>
+
+
+  <!-- Submit Button -->
+  <div class="form-group">
+    <button type="button" class="btn btn-secondary ms-2" (click)="resetFilters()">Reset All Filters</button>
+    <button type="button" class="btn btn-primary" (click)="searchOrders()">Search</button>
+  </div>
+</form>
+
+<!-- Order List --><div class="history">
+  <h2>Order History</h2>
+  <ul *ngIf="orders.length > 0; else noOrders">
+    <li *ngFor="let order of orders" class="order-item">
+      <strong>Order ID:</strong> {{ order.id }}<br />
+
+      <strong>Created by:</strong>
+      <span *ngIf="order.createdBy; else noUser">
+        {{ order.createdBy }}
+      </span>
+      <ng-template #noUser>
+        <span>Unknown User</span>
+      </ng-template>
+      <br />
+
+      <strong>Active:</strong> {{ order.active }}<br />
+      <strong>Status:</strong> {{ order.status }}<br />
+      <strong>Price:</strong> {{ order.cenaPorudzbine}} RSD<br />
+      <strong>Date:</strong> {{ order.createdAt | date:'medium' }}<br />
+      <strong *ngIf="order.scheduledFor">Scheduled For:</strong> {{ order.scheduledFor | date:'medium' }}<br />
+      <strong>Address:</strong> {{ order.address }}<br />
+      <strong>Payment method:</strong> {{ order.paymentType }}<br />
+
+      <h4>Order items:</h4>
+      <ul *ngIf="order.dishes.length > 0; else noDishes">
+        <li *ngFor="let dish of order.dishes">
+          {{ dish.dishName ?? 'Unnamed Dish' }}<br />
+          <hr />
+        </li>
+      </ul>
+      <ng-template #noDishes>
+        <p>No dishes in this order.</p>
+      </ng-template>
+
+      <hr />
+    </li>
+  </ul>
+  <ng-template #noOrders>
+    <p>No orders found.</p>
+  </ng-template>
+</div>

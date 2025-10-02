@@ -1,0 +1,43 @@
+<div class="dish-category">
+  <h1>Breakfast</h1>
+  <div class="dish-card" *ngFor="let dish of breakfastDishes">
+    <img [src]="dish.imageUrl" alt="{{ dish.dishName }}" class="dish-image" />
+    <h3>{{ dish.dishName ?? ''}}</h3>
+    <p>{{ dish.description ?? '' }}</p>
+    <p>{{ dish.cena ?? ''}} RSD</p>
+    <button (click)="addToOrder(dish)">Add to order</button>
+  </div>
+</div>
+
+<div class="dish-category">
+  <h1>Lunch</h1>
+  <div class="dish-card" *ngFor="let dish of lunchDishes">
+    <img [src]="dish.imageUrl" alt="{{ dish.dishName }}" class="dish-image" />
+    <h3>{{ dish.dishName  ?? '' }}</h3>
+    <p>{{ dish.description  ?? '' }}</p>
+    <p>{{ dish.cena ?? ''}} RSD</p>
+    <button (click)="addToOrder(dish)">Add to order</button>
+  </div>
+</div>
+
+<div class="dish-category">
+  <h1>Dinner</h1>
+  <div class="dish-card" *ngFor="let dish of dinnerDishes">
+    <img [src]="dish.imageUrl" alt="{{ dish.dishName }}" class="dish-image" />
+    <h3>{{ dish.dishName  ?? '' }}</h3>
+    <p>{{ dish.description  ?? ''  }}</p>
+    <p>{{ dish.cena ?? ''}} RSD</p>
+    <button (click)="addToOrder(dish)">Add to order</button>
+  </div>
+</div>
+
+<div class="dish-category">
+  <h1>Desserts</h1>
+  <div class="dish-card" *ngFor="let dish of dessertDishes">
+    <img [src]="dish.imageUrl" alt="{{ dish.dishName }}" class="dish-image" />
+    <h3>{{ dish.dishName  ?? '' }}</h3>
+    <p>{{ dish.description  ?? ''}}</p>
+    <p>{{ dish.cena ?? ''}} RSD</p>
+    <button (click)="addToOrder(dish)">Add to order</button>
+  </div>
+</div>

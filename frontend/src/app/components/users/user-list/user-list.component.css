@@ -1,0 +1,109 @@
+.error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centriranje vertikalno */
+  text-align: center;
+  font-size: 24px;
+  color: red;
+}
+
+.user-list {
+  padding: 20px;
+}
+
+.user-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-list li {
+  margin: 20px 0;
+}
+
+.user-card {
+  width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: transparent;
+  justify-content: center; /* Centriranje sadržaja vertikalno */
+  align-items: center;     /* Centriranje sadržaja horizontalno */
+  text-align: center;
+  font-size: 15pt;
+}
+
+.user-info {
+  margin-bottom: 10px;
+
+}
+
+.user-permissions ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.user-permissions li {
+  margin: 5px 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  float: right;
+}
+
+.add-user-btn {
+  display: block;
+  margin: 20px auto;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between; /* Razdvaja tekst i dugme */
+  align-items: center;
+  padding: 10px;
+  background-color: transparent;
+  color: transparent;
+}
+
+.logout-button {
+  margin-left: auto; /* Pomera dugme na desnu stranu */
+  padding: 10px 15px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.logout-button:hover {
+  background-color: #ff1a1a;
+}
+
+.email-text {
+  color: black;
+}

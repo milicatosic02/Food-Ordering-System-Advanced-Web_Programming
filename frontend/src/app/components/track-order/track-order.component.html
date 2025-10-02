@@ -1,0 +1,52 @@
+<div class="history">
+  <h2>Track orders</h2>
+  <ul *ngIf="orders.length > 0; else noOrders">
+    <li *ngFor="let order of orders" class="order-item">
+      <strong>Order ID:</strong> {{ order.id }}<br />
+
+      <strong>Created by:</strong>
+      <span *ngIf="order.createdBy; else noUser">
+        {{ order.createdBy }}
+      </span>
+      <ng-template #noUser>
+        <span>Unknown User</span>
+      </ng-template>
+      <br />
+
+      <strong>Active:</strong> {{ order.active }}<br />
+      <strong>Your order is: </strong> {{ order.status }}<br />
+      <strong *ngIf="order.scheduledFor">Scheduled For:</strong> {{ order.scheduledFor | date:'medium' }}<br />
+      <strong>Address:</strong> {{ order.address }}<br />
+
+      <h4>Order items:</h4>
+      <ul *ngIf="order.dishes.length > 0; else noDishes">
+        <li *ngFor="let dish of order.dishes">
+          {{ dish.dishName ?? 'Unnamed Dish' }}<br />
+          <hr />
+        </li>
+      </ul>
+
+      <button class="close-btn" (click)="cancelOrder(order)">Cancel</button>
+      <ng-template #noDishes>
+
+        <p>No dishes in this order.</p>
+      </ng-template>
+
+      <hr />
+    </li>
+  </ul>
+  <ng-template #noOrders>
+    <p>No active orders.</p>
+  </ng-template>
+</div>
+
+<div *ngIf="isCancellationSuccess !== 0" class="custom-alert">
+  <div class="alert-content">
+    <p *ngIf="isCancellationSuccess === 1">Your order is cancelled successfully.</p>
+    <p *ngIf="isCancellationSuccess === -1">
+      The order cannot be canceled. It may have already been processed or delivered.
+    </p>    <button (click)="closeAlert()">OK</button>
+  </div>
+</div>
+
+

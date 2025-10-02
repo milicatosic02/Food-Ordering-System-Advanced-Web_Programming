@@ -1,0 +1,54 @@
+<div *ngIf="errorMessage; else userList" class="error-message">
+  <h2>{{ errorMessage }}</h2>
+</div>
+
+<div class="container pt-3">
+  <router-outlet></router-outlet>
+</div>
+
+
+<ng-template #userList>
+  <div *ngIf="users.length > 0; else noUsers" class="user-list">
+    <h2>Lista korisnika</h2>
+    <ul>
+      <li *ngFor="let user of users">
+        <div class="user-card">
+          <!-- Klikabilna kartica, samo ako korisnik ima permisiju za update -->
+          <div *ngIf="hasPermission('can_update_users')" class="clickable-card" (click)="onEditUser(user.id)">
+            <p>{{ user.firstName }} {{ user.lastName }} ({{ user.email }})</p>
+          </div>
+
+          <!-- Ako korisnik nema permisiju za update, prikazuje samo tekst -->
+          <div *ngIf="!hasPermission('can_update_users')">
+            <p>{{ user.firstName }} {{ user.lastName }} ({{ user.email }})</p>
+          </div>
+
+          <!-- Prikaz permisija korisnika -->
+          <div class="user-permissions">
+            <strong>Permisije:</strong>
+            <ul style="list-style-type: disc; padding-left: 20px;">
+              <li *ngFor="let role of getUserRoles(user)">
+                {{ role }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dugme za brisanje, prikazuje se samo ako korisnik ima permisiju za delete -->
+          <button *ngIf="hasPermission('can_delete_users')" (click)="onDeleteUser(user.id)" class="delete-btn">
+            Delete
+          </button>
+
+        </div>
+      </li>
+    </ul>
+
+    <!-- Dugme za dodavanje novog korisnika, prikazuje se samo ako korisnik ima permisiju za create -->
+    <button *ngIf="hasPermission('can_create_users')" (click)="onAddUser()" class="add-user-btn">
+      Dodaj novog korisnika
+    </button>
+  </div>
+
+  <ng-template #noUsers>
+    <h3>Nema korisnika.</h3>
+  </ng-template>
+</ng-template>

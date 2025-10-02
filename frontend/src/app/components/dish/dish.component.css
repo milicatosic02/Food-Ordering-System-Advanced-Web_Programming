@@ -1,0 +1,63 @@
+.dish-category {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #2c3e50;
+}
+
+.dish-card {
+  display: inline-block;
+  width: 250px;
+  height: 530px;
+  margin: 20px; /* Povećan razmak između kartica */
+  padding: 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Glatki prelaz za animaciju */
+}
+
+.dish-card:hover {
+  transform: scale(1.05); /* Uvećava karticu za 5% */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Pojačan efekat senke prilikom hover-a */
+}
+
+h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #34495e;
+}
+
+p {
+  font-style: italic;
+  color: #7f8c8d;
+  margin: 10px 0;
+  font-size: 0.9em;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.dish-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}

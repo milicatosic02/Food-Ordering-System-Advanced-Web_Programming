@@ -1,0 +1,12 @@
+/* Postavljanje slike kao pozadine za celu aplikaciju */
+body {
+  background-image: url('assets/background.jpg');
+  background-size: cover;  /* Slika će se prilagoditi širini i visini ekrana */
+  background-position: center;  /* Pozicija slike u centru */
+  background-repeat: repeat; /* Slika se neće ponavljati */
+  min-height: 100vh; /* Minimalna visina stranice je visina ekrana */
+  margin: 0; /* Uklanja default margine */
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
