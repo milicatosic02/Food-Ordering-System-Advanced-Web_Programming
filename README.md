@@ -1,7 +1,7 @@
-# RAF Food Ordering System
+#  Food Ordering System
 
 ## Project Overview
-The **RAF Food Ordering System** is a web application that simulates food ordering. Users can place and track orders (e.g., **ORDERED → PREPARING → IN_DELIVERY → DELIVERED**), cancel when allowed, and schedule future orders. The project covers **user management**, **order management**, **permissions/authorization**, **background processing**, **real-time status updates**, and **error logging** for scheduled jobs.
+The **Food Ordering System** is a web application that simulates food ordering. Users can place and track orders (e.g., **ORDERED → PREPARING → IN_DELIVERY → DELIVERED**), cancel when allowed, and schedule future orders. The project covers **user management**, **order management**, **permissions/authorization**, **background processing**, **real-time status updates**, and **error logging** for scheduled jobs.
 
 ---
 
